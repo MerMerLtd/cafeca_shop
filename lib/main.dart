@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 
+//================================
+//         Pie Chart ref
+//================================
+// https://pub.dev/packages/charts_flutter
+// https://flutterawesome.com/create-charts-using-charts_flutter-plugin-in-the-chart-data-from-the-firestore/
+
+
 void main() {
   runApp(MyApp());
 }
@@ -7,7 +14,6 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return MaterialApp(
       home: Scaffold(
         body: Center(
