@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-//================================
-//         Pie Chart ref
-//================================
-// https://pub.dev/packages/charts_flutter
-// https://flutterawesome.com/create-charts-using-charts_flutter-plugin-in-the-chart-data-from-the-firestore/
-
+import './screens/overview_screen.dart';
+import './prodivers/sold_items.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,23 +11,20 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Column(
-            children: <Widget>[
-              Container(
-                child: Image.asset(
-                  "images/Logo_copy.png",
-                  width: 200.0,
-                  height: 200.0,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ],
-          ),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(
+          value: SoldItems(),
         ),
-        backgroundColor: Color.fromRGBO(39, 44, 71, 1),
+      ],
+      child: MaterialApp(
+        theme: ThemeData(
+          primarySwatch: Colors.pink,
+          accentColor: Colors.pinkAccent,
+          fontFamily: 'Lato',
+        ),
+        title: 'Cafeca Shop',
+        home: OverviewScreen(),
       ),
     );
   }
