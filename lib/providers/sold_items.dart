@@ -76,38 +76,38 @@ class SoldItems with ChangeNotifier {
     return total;
   }
 
-  void addItem(
-    String productId,
-    double price,
-    String title,
-    int quantity,
-    String colorVal,
-  ) {
-    if (_items.containsKey(productId)) {
-      //change quantity
-      _items.update(
-          productId,
-          (existingSoldItem) => SoldItem(
-                id: existingSoldItem.id,
-                title: existingSoldItem.title,
-                price: existingSoldItem.price,
-                colorVal: colorVal,
-                quantity: existingSoldItem.quantity + quantity,
-              )); //  the new CartIteam is created based on the existing one and replace the old one.
-    } else {
-      _items.putIfAbsent(
-        productId,
-        () => SoldItem(
-              id: DateTime.now().toString(),
-              title: title,
-              price: price,
-              colorVal: colorVal,
-              quantity: quantity,
-            ),
-      );
-    }
-    notifyListeners();
-  }
+  // void addItem(
+  //   String productId,
+  //   double price,
+  //   String title,
+  //   int quantity,
+  //   String colorVal,
+  // ) {
+  //   if (_items.containsKey(productId)) {
+  //     //change quantity
+  //     _items.update(
+  //         productId,
+  //         (existingSoldItem) => SoldItem(
+  //               id: existingSoldItem.id,
+  //               title: existingSoldItem.title,
+  //               price: existingSoldItem.price,
+  //               colorVal: colorVal,
+  //               quantity: existingSoldItem.quantity + quantity,
+  //             )); //  the new CartIteam is created based on the existing one and replace the old one.
+  //   } else {
+  //     _items.putIfAbsent(
+  //       productId,
+  //       () => SoldItem(
+  //             id: DateTime.now().toString(),
+  //             title: title,
+  //             price: price,
+  //             colorVal: colorVal,
+  //             quantity: quantity,
+  //           ),
+  //     );
+  //   }
+  //   notifyListeners();
+  // }
 }
 // List<SoldItem> soldItems = [
 //       SoldItem(

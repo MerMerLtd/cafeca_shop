@@ -3,7 +3,7 @@
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 
-import '../prodivers/sold_items.dart';
+import '../providers/sold_items.dart';
 
 // ================================
 //         Pie Chart ref

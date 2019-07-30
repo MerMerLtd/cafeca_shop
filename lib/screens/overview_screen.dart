@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../screens/daily_revenues_screen.dart';
+import '../screens/monthly_revenues_screen.dart';
 import '../widgets/shop_tile.dart';
 import '../widgets/border_all_text.dart';
 import '../widgets/bubble_tarbar.dart';
@@ -62,7 +63,7 @@ class OverviewScreen extends StatelessWidget {
                 child: TabBarView(
                   children: [
                     DailyRevenuesScreen(),
-                    Icon(Icons.directions_transit),
+                    MonthlyRevenuesScreen(),
                     Icon(Icons.directions_bike),
                   ],
                 ),

@@ -5,7 +5,7 @@ import '../providers/sold_items.dart';
 import '../widgets/donut_auto_label_chart.dart';
 import '../widgets/revenue_detail.dart';
 
-class DailyRevenuesScreen extends StatelessWidget {
+class MonthlyRevenuesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final soldItemsData = Provider.of<SoldItems>(context);
@@ -16,7 +16,7 @@ class DailyRevenuesScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Expanded(
-                flex: 1,
+                flex: 2,
                 child: Container(
                   height: 300,
                   child: DonutAutoLabelChart(
@@ -29,7 +29,7 @@ class DailyRevenuesScreen extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
                     Text(
-                      '今日兌換次數',
+                      '今月兌換次數',
                       style: TextStyle(fontSize: 24.0, color: Colors.blueGrey),
                     ),
                     SizedBox(
@@ -50,7 +50,7 @@ class DailyRevenuesScreen extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
                     Text(
-                      '今日兌換金額',
+                      '今月兌換金額',
                       style: TextStyle(fontSize: 24.0, color: Colors.blueGrey),
                     ),
                     SizedBox(
@@ -58,6 +58,27 @@ class DailyRevenuesScreen extends StatelessWidget {
                     ),
                     Text(
                       soldItemsData.totalAmount.toString(),
+                      style: TextStyle(
+                          fontSize: 36.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blueGrey),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: Column(
+                  children: <Widget>[
+                    Text(
+                      '未出帳金額',
+                      style: TextStyle(fontSize: 24.0, color: Colors.blueGrey),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      '0.0',
                       style: TextStyle(
                           fontSize: 36.0,
                           fontWeight: FontWeight.bold,

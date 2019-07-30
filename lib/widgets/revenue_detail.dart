@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../prodivers/sold_items.dart';
+import '../providers/sold_items.dart';
 import '../widgets/table_text.dart';
 
 class RevenueDetail extends StatelessWidget {
