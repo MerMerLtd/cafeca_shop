@@ -41,7 +41,7 @@ class _TagState extends State<Tag> {
                 Align(
                   alignment: Alignment.centerRight,
                   child: Padding(
-                    padding: const EdgeInsets.all(15.0),
+                    padding: const EdgeInsets.only(right: 20.0),
                     child: Icon(
                       Icons.check,
                       color: Colors.white,
