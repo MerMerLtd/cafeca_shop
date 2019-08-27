@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/tag.dart';
 
 class RedeemItemScreen extends StatelessWidget {
   final Function onCheckBtnPressed;
@@ -45,7 +46,7 @@ class RedeemItemScreen extends StatelessWidget {
                             flex: 4,
                             child: Container(
                               alignment: Alignment.center,
-                              margin: EdgeInsets.only(top:60,bottom: 30),
+                              margin: EdgeInsets.only(top: 60, bottom: 30),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(5),
                                 child: Image.network(
@@ -60,13 +61,17 @@ class RedeemItemScreen extends StatelessWidget {
                               child: GridView.builder(
                                 padding: const EdgeInsets.all(10.0),
                                 itemCount: 10,
-                                itemBuilder: (ctx, i) => ClipRRect(
-                                  borderRadius: BorderRadius.circular(100),
-                                  child: RaisedButton(
-                                    onPressed: () {},
-                                    child: Text(i.toString()),
-                                  ),
+                                itemBuilder: (ctx, i) => Tag(
+                                  color: Theme.of(context).primaryColor,
+                                  label: i.toString(),
                                 ),
+                                // ClipRRect(
+                                //   borderRadius: BorderRadius.circular(100),
+                                //   child: RaisedButton(
+                                //     onPressed: () {},
+                                //     child: Text(i.toString()),
+                                //   ),
+                                // ),
                                 gridDelegate:
                                     SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 3,
