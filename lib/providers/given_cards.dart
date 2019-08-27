@@ -1,53 +1,38 @@
 import 'package:flutter/foundation.dart';
 
-class SoldItem {
-  final String id;
-  final String title;
-  final int quantity;
-  final double price;
-  final String colorVal;
+import './given_card.dart';
 
-  SoldItem({
-    @required this.id,
-    @required this.title,
-    @required this.quantity,
-    @required this.price,
-    this.colorVal,
-  });
-}
-
-class SoldItems with ChangeNotifier {
-  Map<String, SoldItem> _items = {
-    'p1':SoldItem(
+class GivenCards with ChangeNotifier {
+  Map<String, GivenCard> _items = {
+    'p1': GivenCard(
       id: 'i1',
       price: 180.0,
       quantity: 11,
       title: 'item1',
       colorVal: '0xffeb4034',
     ),
-    'p2':
-    SoldItem(
+    'p2': GivenCard(
       id: 'i2',
       price: 120.0,
       quantity: 11,
       title: 'item2',
       colorVal: '0xff2b3ae3',
     ),
-    'p3':SoldItem(
+    'p3': GivenCard(
       id: 'i3',
       price: 210.0,
       quantity: 6,
       title: 'item3',
       colorVal: '0xffe6d81c',
     ),
-    'p4':SoldItem(
+    'p4': GivenCard(
       id: 'i4',
       price: 160.0,
       quantity: 16,
       title: 'item4',
       colorVal: '0xff8d24ad',
     ),
-    'p5':SoldItem(
+    'p5': GivenCard(
       id: 'i5',
       price: 280.0,
       quantity: 2,
@@ -56,22 +41,22 @@ class SoldItems with ChangeNotifier {
     ),
   };
 
- 
-  Map<String, SoldItem> get items {
+  Map<String, GivenCard> get items {
     return {..._items};
   }
+
   int get itemCount {
     var sum = 0;
-    _items.forEach((_, soldItem) {
-      sum += soldItem.quantity;
+    _items.forEach((_, givenCard) {
+      sum += givenCard.quantity;
     });
     return sum;
   }
 
   double get totalAmount {
     var total = 0.0;
-    _items.forEach((key, soldItem) {
-      total += soldItem.price * soldItem.quantity;
+    _items.forEach((key, givenCard) {
+      total += givenCard.price * givenCard.quantity;
     });
     return total;
   }

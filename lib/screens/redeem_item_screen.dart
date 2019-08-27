@@ -4,11 +4,15 @@ import '../widgets/tag.dart';
 class RedeemItemScreen extends StatelessWidget {
   final Function onCheckBtnPressed;
   final Function onCancelBtnPressed;
+  final List tagDetails = [];
+  final data;
 
-  const RedeemItemScreen({
+  RedeemItemScreen({
     Key key,
     @required this.onCancelBtnPressed,
     @required this.onCheckBtnPressed,
+    this.data
+    // @required this.data
   }) : super(key: key);
 
   @override
@@ -90,6 +94,7 @@ class RedeemItemScreen extends StatelessWidget {
                                   itemBuilder: (ctx, i) => Tag(
                                     color: Theme.of(context).primaryColor,
                                     label: i.toString(),
+                                    tagDetails: tagDetails,
                                   ),
                                   // ClipRRect(
                                   //   borderRadius: BorderRadius.circular(100),
@@ -139,7 +144,11 @@ class RedeemItemScreen extends StatelessWidget {
                                       size: 60,
                                       color: Colors.white,
                                     ),
-                                    onPressed: onCheckBtnPressed,
+                                    onPressed: (){
+                                      onCheckBtnPressed();
+                                      // http.pull();
+                                      print(tagDetails);
+                                    },
                                   ),
                                 ],
                               ),

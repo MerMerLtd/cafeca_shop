@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class Tag extends StatefulWidget {
   final Color color;
   final String label;
+  final List tagDetails;
 
   const Tag({
     Key key,
     this.color,
     this.label,
+    @required this.tagDetails,
   }) : super(key: key);
 
   @override
@@ -55,6 +57,16 @@ class _TagState extends State<Tag> {
           setState(() {
             onSelected = !onSelected;
           });
+          print(widget.label);
+          int index =
+              widget.tagDetails.indexWhere((label) => label == widget.label);
+          // print(index);
+          if (index == -1) {
+            widget.tagDetails.add(widget.label);
+          } else {
+            widget.tagDetails.removeAt(index);
+          }
+          // print(widget.tagDetails);
         },
       ),
     );

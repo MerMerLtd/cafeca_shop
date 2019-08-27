@@ -1,5 +1,8 @@
+import '../providers/given_card.dart';
+import '../providers/given_cards.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 import '../screens/daily_revenues_screen.dart';
 import '../screens/monthly_revenues_screen.dart';
@@ -30,6 +33,7 @@ class _OverviewScreenState extends State<OverviewScreen> {
   @override
   Widget build(BuildContext context) {
     // final _deviceData = MediaQuery.of(context).size;
+    final data = Provider.of<GivenCards>(context);
     return Stack(
       children: <Widget>[
         Scaffold(
@@ -94,6 +98,19 @@ class _OverviewScreenState extends State<OverviewScreen> {
             },
           ),
         ),
+        // Consumer<GivenCards>(
+        //     builder: (BuildContext context, value, Widget child) {
+        //   toggleModal(true);
+        //   return RedeemItemScreen(
+        //     data: value,
+        //     onCancelBtnPressed: () {
+        //       toggleModal(false);
+        //     },
+        //     onCheckBtnPressed: () {
+        //       toggleModal(false);
+        //     },
+        //   );
+        // }),
         if (isModalOpen)
           RedeemItemScreen(
             onCancelBtnPressed: () {

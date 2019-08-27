@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
-import '../providers/sold_items.dart';
+import '../providers/given_card.dart';
+import '../providers/given_cards.dart';
 import '../widgets/table_text.dart';
 
 class RevenueDetail extends StatelessWidget {
-  final SoldItems soldItemsData;
-  const RevenueDetail({this.soldItemsData});
+  final GivenCards givenCardsData;
+  const RevenueDetail({this.givenCardsData});
   @override
   Widget build(BuildContext context) {
-    List<SoldItem> _soldItems = soldItemsData.items.values.toList();
-    double _totalAmount = soldItemsData.totalAmount;
+    List<GivenCard> _givenCards = givenCardsData.items.values.toList();
+    double _totalAmount = givenCardsData.totalAmount;
     return Column(
       children: <Widget>[
         Container(
@@ -28,22 +29,22 @@ class RevenueDetail extends StatelessWidget {
         ),
         Expanded(
           child: ListView.builder(
-            itemCount: soldItemsData.items.length,
+            itemCount: givenCardsData.items.length,
             itemBuilder: (_, i) => Container(
                   padding: EdgeInsets.all(10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       TableText(
-                          title: _soldItems[i].title, color: Colors.blueGrey, fontSize: 24.0),
+                          title: _givenCards[i].title, color: Colors.blueGrey, fontSize: 24.0),
                       TableText(
-                          title: _soldItems[i].price.toString(), color: Colors.blueGrey, fontSize: 24.0),
+                          title: _givenCards[i].price.toString(), color: Colors.blueGrey, fontSize: 24.0),
                       TableText(
-                          title: _soldItems[i].quantity.toString(), color: Colors.blueGrey, fontSize: 24.0),
+                          title: _givenCards[i].quantity.toString(), color: Colors.blueGrey, fontSize: 24.0),
                       TableText(
-                          title: '${_soldItems[i].price * _soldItems[i].quantity}', color: Colors.blueGrey, fontSize: 24.0),
+                          title: '${_givenCards[i].price * _givenCards[i].quantity}', color: Colors.blueGrey, fontSize: 24.0),
                       TableText(
-                          title: '${((_soldItems[i].price * _soldItems[i].quantity / _totalAmount)* 100).toStringAsFixed(2)}%', color: Colors.blueGrey, fontSize: 24.0),
+                          title: '${((_givenCards[i].price * _givenCards[i].quantity / _totalAmount)* 100).toStringAsFixed(2)}%', color: Colors.blueGrey, fontSize: 24.0),
                     ],
                   ),
                 ),

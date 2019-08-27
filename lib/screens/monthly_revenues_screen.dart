@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../providers/sold_items.dart';
+import '../providers/given_card.dart';
+import '../providers/given_cards.dart';
 import '../widgets/donut_auto_label_chart.dart';
 import '../widgets/revenue_detail.dart';
 
 class MonthlyRevenuesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final soldItemsData = Provider.of<SoldItems>(context);
+    final givenCardsData = Provider.of<GivenCards>(context);
     return Container(
       child: Column(
         children: <Widget>[
@@ -20,7 +21,7 @@ class MonthlyRevenuesScreen extends StatelessWidget {
                 child: Container(
                   height: 300,
                   child: DonutAutoLabelChart(
-                    soldItemsData: soldItemsData,
+                    givenCardsData: givenCardsData,
                   ),
                 ),
               ),
@@ -36,7 +37,7 @@ class MonthlyRevenuesScreen extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                      soldItemsData.itemCount.toString(),
+                      givenCardsData.itemCount.toString(),
                       style: TextStyle(
                           fontSize: 36.0,
                           fontWeight: FontWeight.bold,
@@ -57,7 +58,7 @@ class MonthlyRevenuesScreen extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                      soldItemsData.totalAmount.toString(),
+                      givenCardsData.totalAmount.toString(),
                       style: TextStyle(
                           fontSize: 36.0,
                           fontWeight: FontWeight.bold,
@@ -95,7 +96,7 @@ class MonthlyRevenuesScreen extends StatelessWidget {
           Flexible(
             flex: 1,
             child: RevenueDetail(
-              soldItemsData: soldItemsData,
+              givenCardsData: givenCardsData,
             ),
           ),
         ],

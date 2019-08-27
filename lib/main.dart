@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import './screens/overview_screen.dart';
-import './providers/sold_items.dart';
+import './providers/given_card.dart';
+import './providers/given_cards.dart';
 import './providers/auth.dart';
 
 void main() {
@@ -15,7 +16,10 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(
-          value: SoldItems(),
+          value: GivenCard(),
+        ),
+        ChangeNotifierProvider.value(
+          value: GivenCards(),
         ),
         ChangeNotifierProvider.value(
           value: Auth(),
