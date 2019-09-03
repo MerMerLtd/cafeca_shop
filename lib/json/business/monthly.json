@@ -1,0 +1,12 @@
+{
+    "success": true,
+    "data": {
+        "exchanges": 46,
+        "amount": 7680,
+        "details": [{
+            "item": "Latte",
+            "price": 160,
+            "exchange": 46
+        }]
+    }
+}

@@ -3,8 +3,8 @@
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 
-import '../providers/given_cards.dart';
-import '../providers/given_card.dart';
+import '../providers/assert/given_cards.dart';
+import '../providers/assert/given_card.dart';
 
 // ================================
 //         Pie Chart ref
@@ -23,10 +23,11 @@ class DonutAutoLabelChart extends StatelessWidget {
     seriesPieData.add(
       charts.Series(
           domainFn: (GivenCard givenCard, _) => givenCard.title,
-          measureFn: (GivenCard soldItem, _) =>
-              soldItem.quantity * soldItem.price,
+          measureFn: (GivenCard givenCard, _) =>
+              ,
           colorFn: (GivenCard soldItem, _) => charts.ColorUtil.fromDartColor(
-              Color(int.parse(soldItem.colorVal))),
+              Color(int.parse('0xff8d24ad'))),// use random color later
+              // Color(int.parse(soldItem.colorVal))),
           id: 'soldItems',
           data: mydata,
           labelAccessorFn: (GivenCard item, _) {

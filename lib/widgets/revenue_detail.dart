@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../providers/given_card.dart';
-import '../providers/given_cards.dart';
+import '../providers/assert/given_card.dart';
+import '../providers/assert/given_cards.dart';
 import '../widgets/table_text.dart';
 
 class RevenueDetail extends StatelessWidget {
