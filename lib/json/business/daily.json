@@ -1,12 +1,42 @@
 {
     "success": true,
     "data": {
-        "exchanges": 46,
-        "amount": 7680,
+        "totalQuantity": 46,
+        "totalAmount": 7770,
         "details": [{
-            "item": "Latte",
-            "price": 160,
-            "exchange": 46
-        }]
+                "title": "Cappuccino",
+                "amount": 1980,
+                "quantity": 11, 
+                "priceAvg": 180,
+                "percentage" : 0.25482
+            },
+            {
+                "title": "Espresso",
+                "amount": 1320,
+                "quantity": 11,
+                "priceAvg": 120,
+                "percentage" : 0.16988
+            },
+            {
+                "title": "Macchiato",
+                "amount": 1260,
+                "quantity": 6,
+                "priceAvg": 210,
+                "percentage" : 0.16216
+            },
+            {
+                "title": "Café Latte",
+                "amount": 2560,
+                "quantity": 16,
+                "priceAvg": 160,
+                "percentage" : 0.32947
+            }, {
+                "title": "Affogato",
+                "amount": 560,
+                "quantity": 2,
+                "priceAvg": 280,
+                "percentage" : 0.07207
+            }
+        ]
     }
 }

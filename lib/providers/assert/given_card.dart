@@ -26,16 +26,19 @@ class GivenCard extends ChangeNotifier {
     // this.colorVal,
   });
 
-  Future<void> takeCard(List details) async {
+  Future<void> takeCard(double price, List details) async {
     // final url = 'https://api.cafeca.cc/api/v1/user/card/:$cardId/take';
     final url = '../json/assert/take_card.json';
     try {
-      final response = await http.post(url, headers: {
-        'Content-Type': 'application/json',
-        'Token': 'bd5e5eb049f3907175f54f5a571ba6b9fdea36ab',
-      }, body: {
-        'detail': details // json.encode(details) ??
-      });
+      final response = await http.post(url,
+          headers: {
+            'Content-Type': 'application/json',
+            'Token': 'bd5e5eb049f3907175f54f5a571ba6b9fdea36ab',
+          },
+          body: json.encode({
+            'price': price,
+            'detail': details,
+          }));
       print(response);
       notifyListeners();
     } catch (error) {
@@ -61,8 +64,6 @@ class GivenCard extends ChangeNotifier {
       throw error;
     }
   }
-
-  
 
   /// ====== After fix API uncomment this ================
   /// ====================================================

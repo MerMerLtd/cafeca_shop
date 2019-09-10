@@ -29,7 +29,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   "!ProtoCompiler": 7fc49078ec544d0347264496f6cd09b8132536b5
-  Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   flutter_blue: 0dcfbb3b6fc48cfed0bd99d9cc08a1d15d1bfaea
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
 

@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../providers/given_card.dart';
-import '../providers/given_cards.dart';
+import '../providers/business/summary.dart';
 import '../widgets/donut_auto_label_chart.dart';
 import '../widgets/revenue_detail.dart';
 
 class MonthlyRevenuesScreen extends StatelessWidget {
+  final Summary summary;
+
+  const MonthlyRevenuesScreen({
+    @required this.summary,
+  });
   @override
   Widget build(BuildContext context) {
-    final givenCardsData = Provider.of<GivenCards>(context);
     return Container(
       child: Column(
         children: <Widget>[
@@ -21,7 +23,7 @@ class MonthlyRevenuesScreen extends StatelessWidget {
                 child: Container(
                   height: 300,
                   child: DonutAutoLabelChart(
-                    givenCardsData: givenCardsData,
+                    summaryData: summary,
                   ),
                 ),
               ),
@@ -37,7 +39,7 @@ class MonthlyRevenuesScreen extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                      givenCardsData.itemCount.toString(),
+                      summary.totalQuantity.toString(),
                       style: TextStyle(
                           fontSize: 36.0,
                           fontWeight: FontWeight.bold,
@@ -58,7 +60,7 @@ class MonthlyRevenuesScreen extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                      givenCardsData.totalAmount.toString(),
+                      summary.totalAmount.toString(),
                       style: TextStyle(
                           fontSize: 36.0,
                           fontWeight: FontWeight.bold,
@@ -96,7 +98,7 @@ class MonthlyRevenuesScreen extends StatelessWidget {
           Flexible(
             flex: 1,
             child: RevenueDetail(
-              givenCardsData: givenCardsData,
+              summaryData: summary,
             ),
           ),
         ],

@@ -1,14 +1,18 @@
+import 'package:cafeca_shop/providers/business/summary.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../providers/given_cards.dart';
 import '../widgets/donut_auto_label_chart.dart';
 import '../widgets/revenue_detail.dart';
 
 class DailyRevenuesScreen extends StatelessWidget {
+  final Summary summary;
+
+  const DailyRevenuesScreen({
+    @required this.summary,
+  });
+
   @override
   Widget build(BuildContext context) {
-    final givenCardsData = Provider.of<GivenCards>(context);
     return Container(
       child: Column(
         children: <Widget>[
@@ -20,7 +24,7 @@ class DailyRevenuesScreen extends StatelessWidget {
                 child: Container(
                   height: 300,
                   child: DonutAutoLabelChart(
-                    givenCardsData: givenCardsData,
+                    summaryData: summary,
                   ),
                 ),
               ),
@@ -36,7 +40,7 @@ class DailyRevenuesScreen extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                      givenCardsData.itemCount.toString(),
+                      summary.totalQuantity.toString(),
                       style: TextStyle(
                           fontSize: 36.0,
                           fontWeight: FontWeight.bold,
@@ -57,7 +61,7 @@ class DailyRevenuesScreen extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                      givenCardsData.totalAmount.toString(),
+                      summary.totalAmount.toString(),
                       style: TextStyle(
                           fontSize: 36.0,
                           fontWeight: FontWeight.bold,
@@ -74,7 +78,7 @@ class DailyRevenuesScreen extends StatelessWidget {
           Flexible(
             flex: 1,
             child: RevenueDetail(
-              givenCardsData: givenCardsData,
+              summaryData: summary,
             ),
           ),
         ],

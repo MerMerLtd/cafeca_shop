@@ -3,8 +3,7 @@
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 
-import '../providers/assert/given_cards.dart';
-import '../providers/assert/given_card.dart';
+import '../providers/business/summary.dart';
 
 // ================================
 //         Pie Chart ref
@@ -13,30 +12,26 @@ import '../providers/assert/given_card.dart';
 // https://flutterawesome.com/create-charts-using-charts_flutter-plugin-in-the-chart-data-from-the-firestore/
 
 class DonutAutoLabelChart extends StatelessWidget {
-  final GivenCards givenCardsData;
-  DonutAutoLabelChart({this.givenCardsData});
+  final Summary summaryData;
+  DonutAutoLabelChart({this.summaryData});
 
-  List<charts.Series<GivenCard, String>> seriesPieData;
-  List<GivenCard> mydata;
+  List<charts.Series<Item, String>> seriesPieData;
+  List<Item> mydata;
   void _generateData(mydata) {
-    seriesPieData = List<charts.Series<GivenCard, String>>();
+    seriesPieData = List<charts.Series<Item, String>>();
     seriesPieData.add(
       charts.Series(
-          domainFn: (GivenCard givenCard, _) => givenCard.title,
-          measureFn: (GivenCard givenCard, _) =>
-              ,
-          colorFn: (GivenCard soldItem, _) => charts.ColorUtil.fromDartColor(
-              Color(int.parse('0xff8d24ad'))),// use random color later
-              // Color(int.parse(soldItem.colorVal))),
+          domainFn: (Item item, _) => item.title,
+          measureFn: (Item item, _) => item.amount,
+          colorFn: (Item soldItem, _) => charts.ColorUtil.fromDartColor(
+              Color(int.parse('0xff8d24ad'))), // use random color later
+          // Color(int.parse(soldItem.colorVal))),
           id: 'soldItems',
           data: mydata,
-          labelAccessorFn: (GivenCard item, _) {
+          labelAccessorFn: (Item item, _) {
             String percentage;
-            percentage = (double.parse(
-                        (item.price * item.quantity / givenCardsData.totalAmount)
-                            .toStringAsFixed(2)) *
-                    100)
-                .toStringAsFixed(0);
+            percentage =
+                item.percentage.toStringAsFixed(2) * 100.toStringAsFixed(0);
             return "${item.title} ($percentage%)";
           }),
     );
@@ -44,12 +39,12 @@ class DonutAutoLabelChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<GivenCard> soldItems = givenCardsData.items.values.toList();
+    final List<Item> soldItems = summaryData.details;
     return _buildChart(context, soldItems);
   }
 
-  Widget _buildChart(BuildContext context, List<GivenCard> givenCardsData) {
-    mydata = givenCardsData;
+  Widget _buildChart(BuildContext context, List<Item> summaryData) {
+    mydata = summaryData;
     _generateData(mydata);
     return Padding(
       padding: EdgeInsets.all(8.0),

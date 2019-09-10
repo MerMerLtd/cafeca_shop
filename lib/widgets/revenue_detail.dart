@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 
-import '../providers/assert/given_card.dart';
-import '../providers/assert/given_cards.dart';
+import '../providers/business/summary.dart';
 import '../widgets/table_text.dart';
 
 class RevenueDetail extends StatelessWidget {
-  final GivenCards givenCardsData;
-  const RevenueDetail({this.givenCardsData});
+  final Summary summaryData;
+  const RevenueDetail({this.summaryData});
   @override
   Widget build(BuildContext context) {
-    List<GivenCard> _givenCards = givenCardsData.items.values.toList();
-    double _totalAmount = givenCardsData.totalAmount;
+    List<Item> _givenCards = summaryData.details;
     return Column(
       children: <Widget>[
         Container(
@@ -29,7 +27,7 @@ class RevenueDetail extends StatelessWidget {
         ),
         Expanded(
           child: ListView.builder(
-            itemCount: givenCardsData.items.length,
+            itemCount: _givenCards.length,
             itemBuilder: (_, i) => Container(
                   padding: EdgeInsets.all(10),
                   child: Row(
@@ -38,13 +36,13 @@ class RevenueDetail extends StatelessWidget {
                       TableText(
                           title: _givenCards[i].title, color: Colors.blueGrey, fontSize: 24.0),
                       TableText(
-                          title: _givenCards[i].price.toString(), color: Colors.blueGrey, fontSize: 24.0),
+                          title: _givenCards[i].priceAvg.toString(), color: Colors.blueGrey, fontSize: 24.0),
                       TableText(
                           title: _givenCards[i].quantity.toString(), color: Colors.blueGrey, fontSize: 24.0),
                       TableText(
-                          title: '${_givenCards[i].price * _givenCards[i].quantity}', color: Colors.blueGrey, fontSize: 24.0),
+                          title: '${_givenCards[i].amount}', color: Colors.blueGrey, fontSize: 24.0),
                       TableText(
-                          title: '${((_givenCards[i].price * _givenCards[i].quantity / _totalAmount)* 100).toStringAsFixed(2)}%', color: Colors.blueGrey, fontSize: 24.0),
+                          title: '${_givenCards[i].percentage.toStringAsFixed(2)}%', color: Colors.blueGrey, fontSize: 24.0),
                     ],
                   ),
                 ),

@@ -1,5 +1,4 @@
-import '../providers/given_card.dart';
-import '../providers/given_cards.dart';
+import '../providers/business/summary.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -23,6 +22,21 @@ class _OverviewScreenState extends State<OverviewScreen> {
       'https://images.unsplash.com/photo-1546541865-1cb39bcd0c83?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80';
 
   bool isModalOpen = false;
+  bool isLoading = false;
+  Summary dailySummary;
+  Summary monthlySummary;
+
+  @override
+  void initState() {
+    final dataTool = Provider.of<Summary>(context, listen: false);
+    dataTool.fetchSummary('daily').then((_){
+      dailySummary = dataTool.summarize['daily'];
+    });
+    dataTool.fetchSummary('monthly').then((_){
+      dailySummary = dataTool.summarize['monthly'];
+    });
+    super.initState();
+  }
 
   void toggleModal(bool state) {
     setState(() {
@@ -33,7 +47,6 @@ class _OverviewScreenState extends State<OverviewScreen> {
   @override
   Widget build(BuildContext context) {
     // final _deviceData = MediaQuery.of(context).size;
-    final data = Provider.of<GivenCards>(context);
     return Stack(
       children: <Widget>[
         Scaffold(
@@ -82,8 +95,8 @@ class _OverviewScreenState extends State<OverviewScreen> {
                   Expanded(
                     child: TabBarView(
                       children: [
-                        DailyRevenuesScreen(),
-                        MonthlyRevenuesScreen(),
+                        DailyRevenuesScreen(summary:  dailySummary,),
+                        MonthlyRevenuesScreen(summary:  monthlySummary,),
                         Icon(Icons.directions_bike),
                       ],
                     ),
