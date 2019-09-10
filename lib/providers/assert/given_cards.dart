@@ -6,6 +6,7 @@ import './given_card.dart';
 
 class GivenCards with ChangeNotifier {
   List<GivenCard> _items;
+  List<GivenCard> _onKindItems;
 
   Future<void> fetchGivenCards() async {
     // const url = 'https://api.cafeca.cc/api/v1/user/given';
@@ -39,9 +40,30 @@ class GivenCards with ChangeNotifier {
     }
   }
 
+  Future<void> fetchOneKindGivenCards(String id) async {
+    // const url = 'https://api.cafeca.cc/api/v1/user/given/:cardId';
+    const url = '../json/assert/list_given_card.json';
+    try {
+      final response = await http.get(url, headers: {
+        'Content-Type': 'application/json',
+        'Token': 'bd5e5eb049f3907175f54f5a571ba6b9fdea36ab',
+      });
+      final extractedData = json.decode(response.body) as List<GivenCard>;
+      if (extractedData == null) {
+        return;
+      }
+      
+      _onKindItems = extractedData; // _items = loadedGivenCards;
+      notifyListeners();
+    } catch (error) {
+      throw error;
+    }
+  }
+
   List<GivenCard> get items {
     return [..._items];
   }
+
 }
 
 // Map<String, GivenCard> _items = {

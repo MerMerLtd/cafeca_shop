@@ -4,38 +4,43 @@
         "totalQuantity": 46,
         "totalAmount": 7770,
         "details": [{
+                "id": "",
                 "title": "Cappuccino",
                 "amount": 1980,
-                "quantity": 11, 
+                "quantity": 11,
                 "priceAvg": 180,
-                "percentage" : 0.25482
+                "percentage": 0.25482
             },
             {
+                "id": "",
                 "title": "Espresso",
                 "amount": 1320,
                 "quantity": 11,
                 "priceAvg": 120,
-                "percentage" : 0.16988
+                "percentage": 0.16988
             },
             {
+                "id": "",
                 "title": "Macchiato",
                 "amount": 1260,
                 "quantity": 6,
                 "priceAvg": 210,
-                "percentage" : 0.16216
+                "percentage": 0.16216
             },
             {
+                "id": "",
                 "title": "Café Latte",
                 "amount": 2560,
                 "quantity": 16,
                 "priceAvg": 160,
-                "percentage" : 0.32947
+                "percentage": 0.32947
             }, {
+                "id": "",
                 "title": "Affogato",
                 "amount": 560,
                 "quantity": 2,
                 "priceAvg": 280,
-                "percentage" : 0.07207
+                "percentage": 0.07207
             }
         ]
     }

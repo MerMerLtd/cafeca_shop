@@ -1,9 +1,9 @@
 import 'dart:convert';
-import 'package:cafeca_shop/providers/assert/given_card.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class Item {
+  final id;
   final title;
   final amount;
   final quantity;
@@ -11,6 +11,7 @@ class Item {
   final percentage;
 
   Item({
+    this.id,
     this.title,
     this.amount,
     this.quantity,
