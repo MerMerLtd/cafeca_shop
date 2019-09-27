@@ -23,18 +23,16 @@ class _OverviewScreenState extends State<OverviewScreen> {
 
   bool isModalOpen = false;
   bool isLoading = false;
-  Summary dailySummary;
-  Summary monthlySummary;
+  Summary summary;
+ 
 
   @override
   void initState() {
     final dataTool = Provider.of<Summary>(context, listen: false);
-    dataTool.fetchSummary('daily').then((_){
-      dailySummary = dataTool.summarize['daily'];
+    dataTool.fetchSummary(1569571341671, 1569571345211).then((_){
+      summary = dataTool.summarize;
     });
-    dataTool.fetchSummary('monthly').then((_){
-      dailySummary = dataTool.summarize['monthly'];
-    });
+   
     super.initState();
   }
 
@@ -95,8 +93,8 @@ class _OverviewScreenState extends State<OverviewScreen> {
                   Expanded(
                     child: TabBarView(
                       children: [
-                        DailyRevenuesScreen(summary:  dailySummary,),
-                        MonthlyRevenuesScreen(summary:  monthlySummary,),
+                        DailyRevenuesScreen(summary:  summary,),
+                        MonthlyRevenuesScreen(summary:  summary,),
                         Icon(Icons.directions_bike),
                       ],
                     ),

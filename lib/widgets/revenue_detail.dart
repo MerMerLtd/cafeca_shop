@@ -35,8 +35,8 @@ class RevenueDetail extends StatelessWidget {
                     children: <Widget>[
                       TableText(
                           title: _givenCards[i].title, color: Colors.blueGrey, fontSize: 24.0),
-                      TableText(
-                          title: _givenCards[i].priceAvg.toString(), color: Colors.blueGrey, fontSize: 24.0),
+                      // TableText(
+                          // title: _givenCards[i].priceAvg.toString(), color: Colors.blueGrey, fontSize: 24.0),
                       TableText(
                           title: _givenCards[i].quantity.toString(), color: Colors.blueGrey, fontSize: 24.0),
                       TableText(

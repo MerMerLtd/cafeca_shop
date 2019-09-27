@@ -10,9 +10,9 @@ class DailyRevenuesScreen extends StatelessWidget {
   const DailyRevenuesScreen({
     @required this.summary,
   });
-
   @override
   Widget build(BuildContext context) {
+    print(summary);
     return Container(
       child: Column(
         children: <Widget>[
@@ -40,7 +40,7 @@ class DailyRevenuesScreen extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                      summary.totalQuantity.toString(),
+                      summary.toString(),
                       style: TextStyle(
                           fontSize: 36.0,
                           fontWeight: FontWeight.bold,
@@ -61,7 +61,7 @@ class DailyRevenuesScreen extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                      summary.totalAmount.toString(),
+                      summary.toString(),
                       style: TextStyle(
                           fontSize: 36.0,
                           fontWeight: FontWeight.bold,

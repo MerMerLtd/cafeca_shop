@@ -1,13 +1,14 @@
 {
   "success": true,
-  "data": [
-    {
+  "data": [{
       "cardId": "amsdklmfe232smmdlsd",
       "from": "bd5e5eb049f3907175f54f5a571ba6b9fdea36ab",
       "time": "2019-09-03",
       "title": "item1",
       "imageUrl": "",
       "price": 180,
+      "discountPercentage": 1,
+      "discountAmount": 0,
       "details": ["中杯", "無糖", "少冰", "加仙草"]
     },
     {
@@ -17,6 +18,8 @@
       "title": "item2",
       "imageUrl": "",
       "price": 120,
+      "discountPercentage": 1,
+      "discountAmount": 0,
       "details": ["中杯", "無糖", "少冰", "加仙草"]
     },
     {
@@ -26,6 +29,8 @@
       "title": "item3",
       "imageUrl": "",
       "price": 210,
+      "discountPercentage": 1,
+      "discountAmount": 0,
       "details": ["中杯", "無糖", "少冰", "加仙草"]
     },
     {
@@ -35,6 +40,8 @@
       "title": "item1",
       "imageUrl": "",
       "price": 160,
+      "discountPercentage": 1,
+      "discountAmount": 0,
       "details": ["中杯", "無糖", "少冰"]
     },
     {
@@ -44,6 +51,8 @@
       "title": "item2",
       "imageUrl": "",
       "price": 280,
+      "discountPercentage": 1,
+      "discountAmount": 0,
       "details": ["大杯", "無糖", "少冰", "加仙草"]
     },
     {
@@ -53,6 +62,8 @@
       "title": "item1",
       "imageUrl": "",
       "price": 180,
+      "discountPercentage": 1,
+      "discountAmount": 0,
       "details": ["中杯", "無糖", "少冰", "加仙草"]
     }
   ]
